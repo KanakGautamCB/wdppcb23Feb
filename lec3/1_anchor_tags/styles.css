@@ -1,0 +1,12 @@
+p,h3{
+    margin: 0;
+    padding: 0;
+}
+div{
+    margin: 10px;
+}
+
+/* Universal Selector
+*{
+    color:red
+} */

@@ -1,0 +1,8 @@
+## Create a html page with following parts:
+1. a heading for personal information form
+2. a form that contains a form which have following fields
+ name, age, email, password, contact no and group
+
+## I dont want css only html
+
+## make only name, age and email compulsory

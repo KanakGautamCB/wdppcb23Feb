@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .parent{
+            border: 5px solid black;
+        }
+        .child-1{
+            border: 1px solid red;
+            width: 40%;
+            float:left;
+        }
+        .child-2{
+            border: 1px solid orange;
+            width:40%;
+            float: right;
+        }
+        .parent::after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="parent">
+        <div class="child-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia soluta totam ipsum at similique tenetur sint necessitatibus. Animi architecto esse delectus doloribus sed exercitationem explicabo praesentium. Doloremque veniam architecto perspiciatis in aliquam quam harum aperiam dolorem cupiditate dolorum nemo, esse corporis ratione soluta iure saepe, totam consequuntur eos ex deleniti. Enim voluptatibus recusandae nulla fugit ab, facere magnam corrupti architecto aspernatur facilis quaerat tempore officia voluptatum exercitationem aliquid sapiente perspiciatis quia saepe. Voluptatem optio veniam obcaecati neque sapiente. Quisquam provident mollitia recusandae quod vitae, iusto quo hic iure quam ad omnis deserunt, consequuntur, blanditiis vero quia. Dolorum reiciendis assumenda autem.</div>
+        <div class="child-2">Child-2</div>
+    </div>
+
+</body>
+</html>
