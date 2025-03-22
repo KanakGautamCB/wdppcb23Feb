@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="header-style.css">
+    <link rel="stylesheet" href="studentDetailsStyles.css">
+    <style>
+        .clearfix{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <!-- <div class="logo-img">
+            <div class="img"></div>
+        </div>
+        <div class="heading">
+            <p>Student Application Form</p>
+        </div>
+        <div class="enquiry-type">
+            .
+        </div>   -->
+        
+        <table class="header-table">
+            <tr>
+                <td class="logo-img">
+                    <div class="img"></div>
+                </td>
+                <td class="heading-wrapper">
+                    <p class="heading">Student Application Form</p>
+                </td>
+                <td class="enquiry-type">
+                    <div class="enquiry-wrapper">
+                        <input class="checkbox" type="checkbox" name="enquiry">
+                        <label for="enquiry">Enquiry</label>
+                    </div>
+                    <div class="enrolled-wrapper">
+                        <input class="checkbox" type="checkbox" name="enrolled">
+                        <label for="enrolled">Enrolled</label>  
+                    </div>
+
+                    
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section class="student-details" >
+        <div class="left-half">
+            <table>
+                <tr>
+                    <td >
+                        <div class="left-half-labels">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="age">Age</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="contact">Contact</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="email">Email-id</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="left-half-inputs">
+                            <input name="name" type="text">
+                        </div>
+                        <div class="left-half-inputs">
+                            <input name="age" type="number">
+                        </div>
+                        <div class="left-half-inputs">
+                            <input name="contact" type="number"/>
+                        </div>
+                        <div class="left-half-inputs">
+                            <input type="email" name="email">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-half">
+            <table>
+                <tr>
+                    <td >
+                        <div class="left-half-labels">
+                            <label for="college">College</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="branch">Branch</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="state">State</label>
+                        </div>
+                        <div class="left-half-labels">
+                            <label for="pincode">Pincode</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="left-half-inputs">
+                            <input name="college" type="text">
+                        </div>
+                        <div class="left-half-inputs">
+                            <input name="branch" type="text">
+                        </div>
+                        <div class="left-half-inputs">
+                            <select name="state">
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
+                        </div>
+                        <div class="left-half-inputs">
+                            <input type="number" name="pincode">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+
+        </div>
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.left-half{
+    float:left;
+    
+}
+
+.right-half{
+    float: right;
+}
+
+.left-half,.right-half{
+    width: 45%;
+    padding: 20px;
+    /* border:solid 1px black; */
+}
+.left-half-labels,.left-half-inputs{
+    padding: 5px;
+    font-size: 20px;
+}
+
+.student-details{
+    padding:2% 10%
+}
+
+table,input,select{
+    width: 100%;
+}
+

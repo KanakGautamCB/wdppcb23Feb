@@ -1,0 +1,48 @@
+
+.logo-img, .heading-wrapper{
+    width: 40%
+}
+
+.enquiry-type{
+    width: 20%;
+}
+
+.logo-img{
+    margin-left:4%;
+}
+
+.img{
+    background-image: url('./assets/logo.png');
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left:30px;
+}
+
+
+.header-table{
+    width: 100%;
+}
+
+.heading{
+    /* border: solid black 1px; */
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.enquiry-type{
+    font: 20px;
+}
+
+.enquiry-wrapper,.enrolled-wrapper{
+    margin-left: 20px;
+    /* border: solid 1px black; */
+    padding: 5px;
+}
+
+.checkbox{
+    height: 20px;
+    width: 20px;
+}
+
+
