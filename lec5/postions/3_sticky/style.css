@@ -1,0 +1,23 @@
+.container{
+    width: 500px;
+    margin: auto;
+}
+
+.contact-number{
+    background-color: purple;
+    color: white;
+    border: 1px solid black;
+    margin: 10px 0;
+    height: 30px;
+    text-align: center;
+}
+
+.contact-letter{
+    background-color: yellow;
+    border: 1px solid black;
+    margin:10px 0;
+    height: 30px;
+    text-align: center;
+    position: sticky;
+    top:10px;
+}

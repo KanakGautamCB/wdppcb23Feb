@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin:0
+}
+
+.para-container{
+    width:500px;
+    margin: auto;
+}
+
+.para-heading{
+    background-color: yellow;
+    display: inline-block;
+    position: absolute;
+    left:-50px
+}
+
+.para{
+    position: relative;
+}
+
+.navbar{
+    position: fixed;
+    background-color: black;
+    color: white;
+    width: 100%;
+    z-index:1;
+}
+
+.nav-item{
+    font-size: 20px;
+    margin:10px 20px;
+    display: inline-block;
+}
+
+/*lvha*/
+.nav-item:link{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item:visited{
+    color: white;
+}
+
+.nav-item:hover{
+    text-decoration: underline;
+    color: yellow
+}
+
+.nav-item:active{
+    color:red;
+    text-decoration: none;
+}

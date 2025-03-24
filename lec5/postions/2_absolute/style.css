@@ -1,0 +1,23 @@
+.container{
+    border: 1px solid black;
+    width:600px;
+    height:400px
+}
+
+.container-wrapper{
+    width:800px;
+    height:500px;
+    position:relative;
+    border: 2px solid green 
+}
+
+body{
+    padding:50px
+}
+
+.item{
+    border: 2px solid red;
+    position: absolute;
+    bottom:10px;
+    left:10px;
+}
