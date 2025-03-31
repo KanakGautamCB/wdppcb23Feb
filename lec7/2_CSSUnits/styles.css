@@ -1,0 +1,21 @@
+html{
+    font-size: 20px;
+}
+
+.container{
+
+    /* height: 50vh;
+    width: 50vw; */
+
+    /* height: 10cm;
+    width: 10cm; */
+    /* background-color: aqua; */
+}
+
+.parent{
+    font-size: 2rem;
+}
+
+.child{
+    font-size: 1rem;
+}

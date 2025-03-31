@@ -1,0 +1,34 @@
+.loader{
+    width: 1000px;
+    height: 100px;
+    margin: 200px auto;
+    border: 1px solid black
+}
+
+.loading{
+    height: 100%;
+    background-color: aquamarine;
+    animation-name: moving-loader;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: none;
+}
+
+@keyframes moving-loader{
+    0%{
+        width: 0%;
+    }
+    25%{
+        width: 75%;
+    }
+    50%{
+        width: 25%;
+    }
+    75%{
+        width: 90%;
+    }
+    100%{
+        width: 100%;
+    }
+    
+}

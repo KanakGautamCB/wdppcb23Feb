@@ -1,0 +1,8 @@
+.element{
+    height:500px;
+    width: 500px;
+    margin: 100px auto;
+    background-color: gold;
+    border: 1px solid black;
+    transform: scaleY(2);
+}
