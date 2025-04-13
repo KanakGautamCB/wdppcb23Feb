@@ -26,3 +26,13 @@ function allDone(){
     console.log("Process Completed")
 }
 
+download(()=>{
+    compress(()=>{
+        upload(()=>{
+            allDone()
+        })
+    })
+})
+
+//callback hell
+
