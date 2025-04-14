@@ -7,8 +7,11 @@ let kalTimeSeAaunga = new Promise((resolve,reject)=>{
     }
 })
 
+
+
+
 kalTimeSeAaunga
-    .then((msg)=>{
+.then((msg)=>{
         console.log(msg)
         return "Task complete kar"
     })
