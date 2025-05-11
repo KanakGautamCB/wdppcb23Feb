@@ -15,4 +15,4 @@ let newArr = arr.myfilter((item,index,arr)=>{
     return (item%3==0);
 })
 
-console.log(newArr)
+console.log(newArr,newArr1)
