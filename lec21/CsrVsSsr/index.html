@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: red;">Movie List</h1>
+    <ul class="movie-list">
+
+    </ul>
+    <script>
+        fetch('/movies')
+            .then(response => response.json())
+            .then(data => {
+                const movieList = document.querySelector('.movie-list');
+                data.forEach(movie => {
+                    const li = document.createElement('li');
+                    li.textContent = `${movie.title} (${movie.year})`;
+                    movieList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching movies:', error));
+
+        
+    </script>
+</body>
+</html>
