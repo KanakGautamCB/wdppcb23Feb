@@ -3,7 +3,7 @@ import book from '../models/book.js';
 
 
 async function addAuthor (req, res) {
-    const {name, age,books} = req.body;
+    let {name, age,books} = req.body;
 
     if (!name) {
         return res.status(400).json({message: 'Name is required'});
@@ -11,9 +11,9 @@ async function addAuthor (req, res) {
 
     try {
 
-        let author = await author.findOne({name: name});
-        if(! author) {
-            author = await author.insertOne({
+        let authorData = await author.findOne({name: name});
+        if(! authorData) {
+            authorData = await author.insertOne({
                 name: name,
                 age: age,
             }); 
@@ -22,15 +22,15 @@ async function addAuthor (req, res) {
         books = books.map((book)=>{
             return{
                 ...book,
-                author: author._id
+                author: authorData._id
             }
         })
 
         let booksData = await book.insertMany(books);
         let bookIds = booksData.map((book) => book._id);
-        author.books = [...author.books, ...bookIds];
+        authorData.books = [...authorData.books, ...bookIds];
 
-        author = await author.save();
+        authorData = await authorData.save();
 
         res.status(201).json({message: 'Author added successfully', author});
 
@@ -49,12 +49,12 @@ async function getAuthors(req, res) {
         res.status(400).json({message: 'Name is required'});
     }
     try {
-        let author = author.findOne({name: name}).populate('books');
-        if (!author) {
+        let authorData = await author.findOne({name: name}).populate('books');
+        if (!authorData) {
             return res.status(404).json({message: 'Author not found'});
         }
 
-        res.status(200).json({message: 'Author found', author});    
+        res.status(200).json({message: 'Author found', authorData});    
     } catch (error) {
         res.status(500).json({message: 'Error fetching author', error: error.message});
     }

@@ -19,11 +19,13 @@ async function addBook(req, res) {
             });
         }
 
-        let bookData = book.insertOne({
+        let bookData = await book.insertOne({
             name,
             year,
             author: authorData._id
         });
+
+        console.log(bookData)
         
         if(authorData.books){
             authorData.books = [...authorData.books, bookData._id];
@@ -43,6 +45,7 @@ async function addBook(req, res) {
 
 async function getBook(req,res){
     let {name} = req.query;
+    console.log(name)
     if(!name){
         return res.status(400).json({message: 'Name is required'});
     }
