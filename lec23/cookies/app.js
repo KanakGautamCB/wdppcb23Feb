@@ -36,6 +36,10 @@ app.post('/login', (req, res) => {
 
 app.get('/home', (req, res) => {    
     const cookiesInstance = new cookies(req, res);
+
+    if(!cookiesInstance.get('user')) {
+        return res.redirect('/login');
+    }
     const user = JSON.parse(cookiesInstance.get('user'));
 
     if (!user) {
@@ -58,6 +62,9 @@ app.get('/home', (req, res) => {
 
 app.get('/admin', (req, res) => {
     const cookiesInstance = new cookies(req, res);
+    if(!cookiesInstance.get('user')) {
+        return res.redirect('/login');
+    }
     const user = JSON.parse(cookiesInstance.get('user'));
 
     if (!user || user.role !== 'admin') {
@@ -66,6 +73,16 @@ app.get('/admin', (req, res) => {
         res.send('Welcome to the admin page');
     }
 })
+
+app.get('/logout', (req, res) => {
+    const cookiesInstance = new cookies(req, res);
+    if(!cookiesInstance.get('user')) {
+        return res.redirect('/login');
+    }   
+    cookiesInstance.set('user', '', { maxAge: 0 }); // Clear the cookie
+    res.redirect('/login');
+})
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
