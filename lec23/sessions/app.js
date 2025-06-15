@@ -36,6 +36,7 @@ app.post('/register', (req, res) => {
 
     // Store user in session
     req.session.user = { name, password };
+    // Todo -> Store user in db
     
     res.redirect('/login');
 });
@@ -44,6 +45,7 @@ app.get('/login', (req, res) => {
     if(req.session.user) {
         return res.redirect('/profile');
     }
+    // Todo -> check details from db and make a new session if user is valid
     res.render('login');
 });
 
