@@ -15,9 +15,9 @@ router.get('/login',getLogin)
 
 router.get('/register',getRegister)
 
-router.get('/profile',getProfile)
+router.get('/profile',isLoggedIn,getProfile)
 
 
-router.get('/logout',)
+router.get('/logout',getLogout)
 
 module.exports= router;

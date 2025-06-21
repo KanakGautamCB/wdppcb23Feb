@@ -1,9 +1,10 @@
-import User from '../models/user.js';   
+const User = require( '../models/user.js');   
 
-import bcrypt from 'bcrypt';
+const bcrypt =  require('bcrypt');
 
 
 module.exports.postRegister = async (req, res) => {
+    
     const { name, email, password } = req.body;
     if(!name || !email || !password) {
         return res.status(400).json({ message: 'All fields are required' });
@@ -38,6 +39,7 @@ module.exports.getRegister = (req, res) => {
 
 
 module.exports.postLogin = async (req, res) => {
+    console.log(req.user)
     res.redirect('/profile')
 }
 
@@ -47,10 +49,11 @@ module.exports.getLogin = (req, res) => {
 
 
 module.exports.getProfile = (req, res) => {
-    if (!req.session.user) {
+    if (!req.user) {
         return res.redirect('/login');
     }
-    return res.render('profile', { user: req.session.user });
+
+    return res.render('profile', { username: req.user.name, email:req.user.email });
 }
 
 module.exports.getLogout = (req, res) => {
