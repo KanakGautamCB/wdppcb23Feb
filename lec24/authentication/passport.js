@@ -1,9 +1,33 @@
 const passport = require('passport');   
 const bcrypt = require('bcrypt');
+require('dotenv/config')
+
+
 
 const LocalStrategy = require('passport-local').Strategy;
 
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+
 const User = require('../models/user');
+
+console.log(process.env.REDIRECT_URI)
+passport.use(new GoogleStrategy(
+    {
+        clientID:     process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        callbackURL: 'http://localhost:3000/auth/google/callback',
+        // scope: ['profile'],
+        // accessType: 'Offline',
+        passReqToCallback   : true
+    },
+    (request, accessToken, refreshToken, profile, done) => {
+        console.log("accesstoken",accessToken)
+        console.log("refreshtoken",refreshToken)
+        console.log("profile",profile)
+        return done(null,profile)
+    }
+))
+
 
 
 passport.use(new LocalStrategy(
@@ -31,20 +55,23 @@ passport.use(new LocalStrategy(
     }
 ))
 
+
+
+
 passport.serializeUser((user, done) => {
-    console.log("serializeUser",user._id)
-    done(null, user._id);
+    console.log("serializeUser",user)
+   done(null,user)
+    
 })
 
 
-passport.deserializeUser(async function(id,done){
+passport.deserializeUser(async function(user,done){
     
     try {
-        let user = await User.findOne({_id:id});
         if(!user){
             return done(null,false)
         }
-        console.log("deserializeUser",user)
+        //console.log("deserializeUser",user)
         done(null,user)
         
     } catch (error) {
@@ -53,3 +80,5 @@ passport.deserializeUser(async function(id,done){
         
     }
 })
+
+module.exports =passport

@@ -9,6 +9,14 @@ const router = express.Router();
 // req -> req.user
 router.post('/login',passport.authenticate('local',{failureRedirect:'/login'}), postLogin)
 
+router.post('/login/google',passport.authenticate('google',{scope:['profile','email']}))
+
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/login'}),
+    (req,res)=>{
+        console.log(req.user)
+        res.render('profile',{username:req.user.displayName,email:req.user.email})
+    })
+
 router.post('/register',postRegister)
 
 router.get('/login',getLogin)

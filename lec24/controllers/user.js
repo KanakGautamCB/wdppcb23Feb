@@ -52,7 +52,7 @@ module.exports.getProfile = (req, res) => {
     if (!req.user) {
         return res.redirect('/login');
     }
-
+    console.log(req.user)
     return res.render('profile', { username: req.user.name, email:req.user.email });
 }
 
@@ -61,6 +61,7 @@ module.exports.getLogout = (req, res) => {
         if (err) {
             return res.status(500).json({ message: 'Logout failed' });
         }
+        //req.logOut()
         return res.redirect('/login');
     });
 }
