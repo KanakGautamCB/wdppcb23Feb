@@ -11,6 +11,20 @@ const io = new Server(httpServer, { /* options */ });
 let userMap={};
 
 io.on("connection", (socket) => {
+
+  socket.on("newuseradded",({username,socketId}) => {
+    userMap[socketId] = username;
+    io.emit("activeusers", { activeUsers: Object.values(userMap) });
+  })
+
+  socket.on("newmessage", ({ message, socketId }) => {
+    const username = userMap[socketId];
+    io.emit("messagereceived", {
+      message,
+      username,
+      socketId,
+    });
+  })
   
 });
 

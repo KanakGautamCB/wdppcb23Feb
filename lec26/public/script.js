@@ -5,49 +5,52 @@ const socket = io()
 let userName;
 
 loginButton.addEventListener('click',()=>{
-    userName= document.querySelector('.username').value;
-    document.querySelector('.login').style.display='none';
-    document.querySelector('.chat-application').style.display='block';
-    document.querySelector('.current-user').innerText=userName;
-    socket.emit('newuseradded',{
-        username:userName,
-        socketId:socket.id
-    })
+
+    userName = document.querySelector('.username').value;
+    document.querySelector('.login').style.display = 'none';
+    document.querySelector('.chat-application').style.display = 'block';
+    document.querySelector('.current-user').innerText = userName;
+
+    socket.emit('newuseradded',{username:userName,socketId:socket.id})
+    
 })
 
 sendButton.addEventListener('click',()=>{
-    const message=messageInput.value;
-    messageInput.value=''
-    socket.emit('newmessage',{
-        message:message,
-        socketId:socket.id,
-        username:userName
-    })
+    const message = messageInput.value;
+    if(!message) return;
+
+    socket.emit('newmessage',{message,socketId:socket.id})
+    messageInput.value = '';
+ 
+    
 })
 
 socket.on('messagereceived',({message,username,socketId})=>{
-    const messageWrapper=document.createElement('div');
-    messageWrapper.classList.add('chat')
     
-    const messageElement = document.createElement('div')
-    messageElement.innerText=`${username}: ${message}`
+    const messageWrapper = document.createElement('div');
+    messageWrapper.classList.add('chat');
 
-    if(socketId==socket.id){
-        messageWrapper.classList.add('chat-user')
-        messageElement.classList.add('my-chat')
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+
+    if(socketId === socket.id){
+        messageWrapper.classList.add('chat-user');
+        messageElement.classList.add('my-chat');
     }else{
-        messageWrapper.classList.add('chat-other')
-        messageElement.classList.add('another-chat')
+        messageWrapper.classList.add('chat-other');
+        messageElement.classList.add('another-chat');     
     }
 
-    messageWrapper.appendChild(messageElement)
+    messageWrapper.appendChild(messageElement);
 
-    document.querySelector('.chats').appendChild(messageWrapper)
-    
+    document.querySelector('.chats').appendChild(messageWrapper);
 
 })
 
 socket.on('activeusers',({activeUsers})=>{
-    console.log(activeUsers)
-    document.querySelector('.active-users').innerText=activeUsers
+
+    console.log(activeUsers);
+    document.querySelector('.active-users').innerText = activeUsers.length; 
+
+    
 })
