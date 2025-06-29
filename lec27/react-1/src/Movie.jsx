@@ -1,8 +1,7 @@
 
 
 
-function Movie(props){
-    const {title,year} = props;
+function Movie({title, year}) { 
 
     return (    
         <div className="movie-list">

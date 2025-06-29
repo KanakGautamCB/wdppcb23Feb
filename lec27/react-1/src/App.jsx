@@ -35,11 +35,12 @@ const movieData = [
 
 function App() {
 
-  const [movieList, setMovieList] = useState(movieData|| []);
+  const movieList = movieData;  
   
 
   return (
     <div>
+      {/* Looping */}
       {movieList.map((movie, index) => (
         <Movie  title={movie.Title} year={movie.Year} key={index} />
       ))}
