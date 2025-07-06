@@ -1,0 +1,19 @@
+.chip-container{
+    display: flex;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: grey;
+    color: white;
+    justify-content: space-around;
+    min-width: 100px;
+    font-size: 20px;
+}
+
+.delete-button{
+    background-color: inherit;
+    border: none;
+    color: red;
+    font-size: 20px;
+}

@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+.heading{
+  margin-top: 25vh;
+  margin-bottom: 8vh;
+}
+
+.chip-input-box{
+  width: 50%;
+  font-size: 20px;
+}
+
+.chips-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  padding: 10px;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
